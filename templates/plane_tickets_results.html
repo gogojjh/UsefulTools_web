@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}UsefulTools{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+<table class="table table-hover">
+    {% if plane_info %}
+    <caption><h1>航班讯息</h1></caption>
+    <thead>
+    <tr>
+        <td align="center">出发地<br>目的地</td>
+        <td align="center">日期</td>
+        <td align="center">时间</td>
+        <td align="center">最低票价</td>
+        <td align="center">航空公司</td>
+        <td align="center">飞机型号</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for each in plane_info %}
+        <tr>
+            <td align="center"><strong>{{ each['orgCityName'] }}{{ each['orgAirportName'] }}<br>
+                               {{ each['dstCityName'] }}{{ each['dstAirportName'] }}</strong></td>
+            <td align="center">{{ each['departureDate'] }}</td>
+            <td align="center" style="color: coral"><strong>{{ each['departureTime'] }}</strong><br>
+                               {{ each['arrivalTime'] }}</td>
+            <td align="center" style="color: dodgerblue"><strong>{{ each['lowestPrice'] }}</strong></td>
+            <td align="center">{{ each['airlineName'] }}</td>
+            <td align="center">{{ each['flightNo'] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    {% else %}
+        <h1>当日无直达航班</h1>
+    {% endif %}
+
+</div>
+{% endblock %}

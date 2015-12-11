@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}UsefulTools{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+<table class="table table-hover">
+    <caption><h1>火车讯息</h1></caption>
+    <thead>
+    <tr>
+        <td align="center">车次</td>
+        <td align="center">出发站<br>到达站</td>
+        <td align="center">时间</td>
+{#        <td align="center">商务座</td>#}
+{#        <td align="center">特等座</td>#}
+        <td align="center">一等座</td>
+        <td align="center">二等座</td>
+{#        <td align="center">高级<br>软卧</td>#}
+        <td align="center">软卧</td>
+        <td align="center">硬卧</td>
+{#        <td align="center">软座</td>#}
+        <td align="center">硬座</td>
+        <td align="center">无座</td>
+        <td align="center">备注</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for each in train_info %}
+        <tr>
+            <td align="center"><strong>{{ each['station_train_code'] }}</strong></td>
+            <td align="center">{{ each['from_station_name'] }}<br>{{ each['to_station_name'] }}</td>
+            <td align="center"><strong>{{ each['start_time'] }}</strong><br>{{ each['arrive_time'] }}</td>
+{#            <td align="center">{{ each['swz_num'] }}</td>#}
+{#            <td align="center">{{ each['tz_num'] }}</td>#}
+            <td align="center">{{ each['zy_num'] }}</td>
+            <td align="center" style="color: dodgerblue"><strong>{{ each['ze_num'] }}</strong></td>
+{#            <td align="center">{{ each['gr_num'] }}</td>#}
+            <td align="center">{{ each['rw_num'] }}</td>
+            <td align="center" style="color: coral"><strong>{{ each['yw_num'] }}</strong></td>
+{#            <td align="center">{{ each['yb_num'] }}</td>#}
+            <td align="center">{{ each['yz_num'] }}</td>
+            <td align="center">{{ each['wz_num'] }}</td>
+            <td align="center"><strong>{{ each['note'] }}</strong></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

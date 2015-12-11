@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}UsefulTools{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h3>跟我这查询</h3>
+    <h2>不是看你要什么</h2>
+    <h1>而是看我有什么</h1>
+</div>
+{{ wtf.quick_form(form) }}
+{% endblock %}

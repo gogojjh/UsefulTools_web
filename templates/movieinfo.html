@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}UsefulTools{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+<table class="table table-hover">
+    <caption><h1>热映电影信息</h1></caption>
+    <thead>
+    <tr>
+        <td align="center">电影</td>
+        <td align="center">评分</td>
+        <td align="center">热评</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for each in movie_info %}
+        <tr>
+        <td align="center">{{ each['name'] }}</td>
+        <td align="center">{{ each['rating'] }}</td>
+        <td align="center">{{ each['comment1'] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
+
